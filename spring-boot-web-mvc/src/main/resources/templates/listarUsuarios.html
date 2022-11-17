@@ -49,7 +49,7 @@ more info: https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#appen
 <!--                Rellenamos las filas usando un bloque "for" de thymeleaf th:each -->
 <!-- 				th:each ="usuario : ${usuarios}" 
 					${...} para acceder a las variables. 
-					${usuarios} es una variable de la estructura clave-valor model (contex variable para thymeleaf). 
+					${usuarios} es una variable de la estructura clave-valor model (context variable para thymeleaf). 
 					Viene desde el controlador.	usuarios es la key, y el valor es una "lista" de objetos Usuario.					  
 					Cada objeto usuario se extrae en un objeto local (no forma parte de model) llamado usuario					-->
                     <tr th:each ="usuario : ${usuarios}">
