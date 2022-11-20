@@ -20,28 +20,10 @@ public class UsuarioServiceImpl implements UsuarioService {
 	public UsuarioServiceImpl(UsuarioRepository usuarioRepository) {
 		// TODO Auto-generated constructor stub
 		System.out.println("\t Constructor UsuarioServiceImpl ");
-		this.usuarioRepository = usuarioRepository;
-		iniciarUsuarios();
+		this.usuarioRepository = usuarioRepository;		
 	}
 		
-	private void iniciarUsuarios() {
-		//Crear tres de usuarios y le añadimos direcciones. Inicializacion de la BD "poco elegante".
-		Usuario usuario01 = new Usuario("Luiky","luiky@unex.es");
-		Usuario usuario02 = new Usuario("Lidia","lidia@gmail.com");
-		Usuario usuario03 = new Usuario("Pedro","pedro@gmail.com");
-		
-		usuario01.addDireccion(new Direccion("Plaza", "Caceres"));
-		usuario01.addDireccion(new Direccion("Calle", "Coria"));
-		
-		usuario02.addDireccion(new Direccion("Carrer", "Sabadell"));
-		
-		usuario03.addDireccion(new Direccion("Calleja", "Coria"));
-		
-		usuario01 = usuarioRepository.save(usuario01);
-		usuario02 = usuarioRepository.save(usuario02);
-		usuario03 = usuarioRepository.save(usuario03);
-		
-	}
+
 	
 	@Override
 	public Iterable<Usuario> crearUsuario(Usuario usuario) {		
