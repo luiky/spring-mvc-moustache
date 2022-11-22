@@ -8,6 +8,7 @@ import com.mdai.web.model.Direccion;
 import com.mdai.web.model.Usuario;
 import com.mdai.web.repository.UsuarioRepository;
 
+//@Order (1) Permite la ejecución en ordenada de (1 a N) de multiples commandLineRunner.
 @Component
 public class startRunner implements CommandLineRunner{
 	
