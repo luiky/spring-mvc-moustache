@@ -33,7 +33,7 @@ public class startRunner implements CommandLineRunner{
 	
 	private void iniciarUsuarios() {
 		System.out.println("\t startRunner: creando usuarios para la BD");
-		//Crear tres de usuarios y le añadimos direcciones. Inicializacion de la BD "poco elegante".
+		//Crear tres de usuarios y le añadimos direcciones. 
 		Usuario usuario01 = new Usuario("Luiky","luiky@unex.es");
 		Usuario usuario02 = new Usuario("Lidia","lidia@gmail.com");
 		Usuario usuario03 = new Usuario("Pedro","pedro@gmail.com");
