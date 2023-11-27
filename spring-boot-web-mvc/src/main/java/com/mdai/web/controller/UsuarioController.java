@@ -37,7 +37,7 @@ public class UsuarioController {
     }
 
 	//
-	//La url comienza http:localhost:8080. hola.html está en resources/templates
+	//La url comienza http:localhost:8080. hola.html esta en resources/templates
 	//Procesa la peticion a http://localhost:8080/hola
 	@GetMapping("/hola")
 	public String holaUsuarioControllerThymeleaf(Model model) {
