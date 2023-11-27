@@ -1,2 +1,2 @@
 # spring-mvc-thymeleaf
-2022: MDAI Spring Boot MVC and Thymelaf, public example.
+2022: MDAI Spring Boot MVC and Thymelaf, basic public example.
