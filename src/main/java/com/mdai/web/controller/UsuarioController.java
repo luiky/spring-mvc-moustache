@@ -152,7 +152,7 @@ public class UsuarioController {
      */
     //Es invocado desde el boton típico de la papelera en listarUsuarios.html
     //se le envía el id del usuario y este se añade url con @PathVariable, aunque no llega a mostrarse la URL por la redireccion
-    @DeleteMapping("/deleteUsuario/{id}")
+    @PostMapping("/deleteUsuario/{id}")
     public String deleteUsuario(@PathVariable("id") Long id, Model model) {
     	System.out.println("\t usuarioController::deleteUsuario");
     	//no es estrictamente necesario añadir los usuarios al modelo en este caso
