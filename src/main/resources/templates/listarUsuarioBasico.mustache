@@ -1,0 +1,27 @@
+<title>Listar Usuarios</title>
+
+<h1>Listar Usuarios</h1>
+
+<div class="container">
+    <h1>Tabla de Usuarios</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Direcciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#usuarios}}
+            <tr>
+                <td>{{name}}</td>
+                <td>{{email}}</td>
+                <td>{{direcciones}}</td>
+            </tr>
+            {{/usuarios}}
+        </tbody>
+    </table>
+</div>
+

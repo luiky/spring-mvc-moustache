@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar Usuarios</title>
+
+    <!-- Estilos de Bootstrap y Font Awesome -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <!-- Estilos personalizados -->
+    <style>
+        .container {
+            margin-top: 20px;
+        }
+
+        .boton-editar, .boton-borrar {
+            cursor: pointer;
+        }
+
+        /* Estilos para el formulario de edición */
+        #formulario-edicion {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Tabla de Usuarios</h1>
+    <!--             Icono con el tipico + para añadir usuario -->
+ <div>
+			<p class="my-5"><a href=/addUsuario class="btn btn-primary"><span class="fas fa-plus-square"></span></a></p>
+</div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Direcciones</th>
+                <th>Editar</th>
+                <th>Borrar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#usuarios}}
+            <tr>
+                <td>{{name}}</td>
+                <td>{{email}}</td>
+                <td>{{direcciones}}</td>
+                <!--<td class="boton-editar" onclick="mostrarFormularioEdicion('{{name}}', '{{email}}')"><i class="fas fa-edit"></i></td>-->
+                <td><a href="/updateUsuario/{{id}}"><span class="fas fa-edit"></span></a></td>
+                                
+                <td class="boton-borrar" onclick="borrarUsuario('{{name}}')"><i class="fas fa-trash-alt"></i></td>
+            </tr>
+            {{/usuarios}}
+        </tbody>
+    </table>
+</div>
+
+
+
+<!-- Script de Mustache y FontAwesome -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/4.2.0/mustache.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+<script>
+    // Datos de ejemplo
+
+
+    // Variables para la edición
+    var usuarioEditando = null;
+
+    function mostrarFormularioEdicion(nombre, email) {
+        // Mostrar el formulario de edición con los datos actuales
+        document.getElementById('nombre-edicion').value = nombre;
+        document.getElementById('email-edicion').value = email;
+        document.getElementById('formulario-edicion').style.display = 'block';
+
+        // Almacenar el usuario que se está editando
+        usuarioEditando = { name: nombre, email: email };
+    }
+
+    function guardarEdicion() {
+        // Lógica para guardar la edición
+        if (usuarioEditando) {
+            // Encuentra y actualiza el usuario en la lista de usuarios
+            var index = usuarios.findIndex(function(user) {
+                return user.name === usuarioEditando.name;
+            });
+
+            if (index !== -1) {
+                usuarios[index].name = document.getElementById('nombre-edicion').value;
+                usuarios[index].email = document.getElementById('email-edicion').value;
+
+                // Vuelve a renderizar la tabla
+                renderizarTabla();
+            }
+        }
+
+        // Oculta el formulario de edición
+        cancelarEdicion();
+    }
+
+    function cancelarEdicion() {
+        // Oculta el formulario de edición
+        document.getElementById('formulario-edicion').style.display = 'none';
+
+        // Restablece la variable de usuario en edición
+        usuarioEditando = null;
+    }
+
+    function borrarUsuario(nombre) {
+        // Lógica para borrar un usuario
+        alert('Borrar usuario: ' + nombre);
+    }
+
+    function renderizarTabla() {
+        // Lógica para renderizar la tabla
+        var template = document.getElementById('template').innerHTML;
+        var resultadoHTML = Mustache.render(template, { usuarios: usuarios });
+        document.getElementById('tabla-usuarios').innerHTML = resultadoHTML;
+    }
+
+    // Inicializar la tabla al cargar la página
+    renderizarTabla();
+</script>
+
+</body>
+</html>
+

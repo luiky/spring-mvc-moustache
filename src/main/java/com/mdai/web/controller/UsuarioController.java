@@ -41,7 +41,7 @@ public class UsuarioController {
 	//Procesa la peticion a http://localhost:8080/hola
 	@GetMapping("/hola")
 	public String holaUsuarioControllerThymeleaf(Model model) {
-		String texto = "Hola mundo en Spring MVC y Thymeleaf";
+		String texto = "Hola mundo en Spring MVC y MUSTACHE";
 		//model es un Map, clave-valor. Clave es un string y valor un Object de Java, por tanto, puede ser un Objeto, una Coleccion...
 		model.addAttribute("Bienvenida", texto );
 		return "hola"; //devuelve la vista a renderizar
@@ -121,7 +121,7 @@ public class UsuarioController {
     }
 
     //Invocado desde el boton de actualizarUsuario.html
-    @PutMapping("/updateUsuario/{id}")
+    @PostMapping("/updateUsuario/{id}")
     public String updateUsuario(@PathVariable("id") Long id, Usuario usuario, Model model) {   	
     	System.out.println("\n\t UsuarioController::updateUsuario");
  		 	
