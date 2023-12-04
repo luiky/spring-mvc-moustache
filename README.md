@@ -1,4 +1,4 @@
 # spring-mvc-moustache
-2022: MDAI Spring Boot MVC and Moustache, basic public example.
+MDAI Spring Boot MVC and Moustache, basic public example.
 
-MDAI: A partir del repo spring-mvc-thymeleaf deben reemplazar thymeleaf por moustache.
+MDAI (PID 2023): A partir del repo spring-mvc-thymeleaf deben reemplazar thymeleaf por moustache.
